@@ -14,7 +14,7 @@ function SortTools.Sort(tab, ...)
 			sort_type = v[1]
 			sort_key = v[2]
 			if sort_type == SORT_TYPE.Upper then
-				if a[v[2]] > b[sort_key] then
+				if a[sort_key] > b[sort_key] then
 					left = left + (100 - k)
 				elseif a[sort_key] < b[sort_key] then
 					right = right + (100 - k)
@@ -34,7 +34,7 @@ function SortTools.Sort(tab, ...)
 	table.sort(tab, sort_fun)
 end
 
-SortTools.Sort(tab, {{SORT_TYPE.Upper, "can_get"}, {SORT_TYPE.Upper, "id"}})
+SortTools.Sort(tab, {{SORT_TYPE.Upper, "can_get"}, {SORT_TYPE.Lower, "id"}})
 for _, v in pairs(tab) do
 	print(v.id .. " ---- " .. v.can_get)
 end
