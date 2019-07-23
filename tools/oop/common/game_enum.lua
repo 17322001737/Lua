@@ -1,0 +1,13 @@
+GAME_ENUM = {
+	ERROR = "ERROR",
+
+	VIEW_STATUS = {
+		NONE = "NONE",
+		OPEN = "OPEN",
+		CLOSE = "CLOSE",
+	},
+
+	CONFIG = {
+		ROLE_EXP_CONFIG = "ROLE_EXP_CONFIG",
+	}
+}
