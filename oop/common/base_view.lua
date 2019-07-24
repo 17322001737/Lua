@@ -1,5 +1,11 @@
 BaseView = BaseView or BaseClass()
 
+function BaseView.New(self, ...)
+	if ... ~= nil then
+		ViewManager:RegisterView(self, ...)
+	end
+end
+
 function BaseView:Load()
 	self:LoadCallBack()
 end

@@ -9,6 +9,7 @@ end
 
 function Config:Destructor()
 	self.config_list = nil
+	self.config_mapping = nil
 end
 
 function Config:GetConfig(config_name)

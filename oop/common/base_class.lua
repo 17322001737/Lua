@@ -3,6 +3,8 @@ function BaseClass(super)
 		super.__index = super
 	else
 		super = {}
+		super.New = function(self, ...)
+		end
 		super.__index = super
 	end
 
@@ -10,10 +12,8 @@ function BaseClass(super)
 		Constructor = function() end,
 		Destructor = function() end,
 	}
-	self.New = function(view_name)
-		if view_name ~= nil then
-			ViewManager:RegisterView(view_name, self)
-		end
+	self.New = function(...)
+		super.New(self, ...)
 		self:Constructor()
 
 		return self

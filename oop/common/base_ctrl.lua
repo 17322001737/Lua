@@ -5,5 +5,5 @@ function BaseCtrl:GetView()
 end
 
 function BaseCtrl:GetData()
-	return self.view
+	return self.data
 end

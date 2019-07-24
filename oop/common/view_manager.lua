@@ -10,7 +10,7 @@ function ViewManager:Destructor()
 	self.view_status = nil
 end
 
-function ViewManager:RegisterView(view_name, view)
+function ViewManager:RegisterView(view, view_name)
 	if self.view_list[view_name] == nil then
 		self.view_list[view_name] = view
 	end
