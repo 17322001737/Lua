@@ -25,20 +25,29 @@ end
 function main()
 	Init()
 	print("------------------------- View DEMO")
+
 	ViewManager:Open(View.RoleExpView)
 	ViewManager:Close(View.RoleExpView)
+
 	print("------------------------- Event DEMO")
-	EventManager:GlobalRegister(Event.SendProtocol, SendProtocol)
-	EventManager:GlobalFire(Event.SendProtocol, "Request RoleExp")
+	EventManager:GlobalRegister(Event.GlobalSendProtocol, GlobalSendProtocol)
+	EventManager:GlobalFire(Event.GlobalSendProtocol, "Request RoleExp")
+
+	-- remove before
+	RoleExpCtrl:CheckRoleExp()
+	-- remove later
+	RoleExpCtrl:CheckRoleExp()
+
 	print("------------------------- Config DEMO")
+
 	local cfg = Config:GetConfig(GAME_ENUM.CONFIG.ROLE_EXP_CONFIG)
 	for _, v in ipairs(cfg) do
 		print("LEVEL:" .. v.level, "EXP:" .. v.exp)
 	end
 end
 
-function SendProtocol(params)
-	print("Send Protocol:", params)
+function GlobalSendProtocol(params)
+	print("GlobalSend Protocol:", params)
 end
 
 main()

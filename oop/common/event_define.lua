@@ -1,3 +1,4 @@
 Event = {
-	SendProtocol = "SendProtocol",
+	GlobalSendProtocol = "GlobalSendProtocol",
+	RoleCtrlEvent = "RoleCtrlEvent"
 }
