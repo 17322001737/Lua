@@ -36,7 +36,7 @@ function EventManager:GlobalFire(event_name, params)
 end
 
 function EventManager.Register(self, event_name, callback)
-	if obj == nil or event_name == nil or callback == nil or type(callback) ~= "function" then
+	if self == nil or event_name == nil or callback == nil or type(callback) ~= "function" then
 		print("global event format get a error!")
 	end
 
@@ -65,7 +65,7 @@ function EventManager.Register(self, event_name, callback)
 end
 
 function EventManager.Fire(self, event_name, params)
-	if self.event_list == nil then
+	if self == nil or self.event_list == nil then
 		print("local event list not found.")
 		return
 	end
@@ -81,7 +81,7 @@ function EventManager.Fire(self, event_name, params)
 end
 
 function EventManager.Remove(self, event_name)
-	if self.event_list == nil then
+	if self == nil or self.event_list == nil then
 		print("local event list not found.")
 	end
 
