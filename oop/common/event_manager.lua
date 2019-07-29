@@ -37,7 +37,7 @@ end
 
 function EventManager.Register(self, event_name, callback)
 	if self == nil or event_name == nil or callback == nil or type(callback) ~= "function" then
-		print("global event format get a error!")
+		print("local event format get a error!")
 	end
 
 	if self.event_list == nil then
