@@ -8,6 +8,7 @@ end
 function ViewManager:Destructor()
 	self.view = nil
 	self.view_status = nil
+	self.view_list = nil
 end
 
 function ViewManager:RegisterView(view, view_name)
