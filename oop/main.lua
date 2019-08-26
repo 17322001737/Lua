@@ -17,37 +17,45 @@ function Init()
 		require(v)
 	end
 	EventManager.New()
-	ViewManager.New()
 	Config.New()
+	ViewManager.New()
 	RoleExpCtrl.New()
 end
 
 function main()
 	Init()
-	print("------------------------- View DEMO")
 
+	ViewDemo()
+	-- EventDemo()
+	-- ConfigDemo()
+end
+
+function ViewDemo()
+	print("------------------------- View DEMO")
 	ViewManager:Open(View.RoleExpView)
 	ViewManager:Close(View.RoleExpView)
+end
 
+function EventDemo()
 	print("------------------------- Event DEMO")
 	EventManager:GlobalRegister(Event.GlobalSendProtocol, GlobalSendProtocol)
 	EventManager:GlobalFire(Event.GlobalSendProtocol, "Request RoleExp")
-
 	-- remove before
 	RoleExpCtrl:CheckRoleExp()
 	-- remove later
 	RoleExpCtrl:CheckRoleExp()
-
-	print("------------------------- Config DEMO")
-
-	local cfg = Config:GetConfig(GAME_ENUM.CONFIG.ROLE_EXP_CONFIG)
-	for _, v in ipairs(cfg) do
-		print("LEVEL:" .. v.level, "EXP:" .. v.exp)
-	end
 end
 
 function GlobalSendProtocol(params)
 	print("GlobalSend Protocol:", params)
+end
+
+function ConfigDemo()
+	print("------------------------- Config DEMO")
+	local cfg = Config:GetConfig(GAME_ENUM.CONFIG.ROLE_EXP_CONFIG)
+	for _, v in ipairs(cfg) do
+		print("LEVEL:" .. v.level, "EXP:" .. v.exp)
+	end
 end
 
 main()
