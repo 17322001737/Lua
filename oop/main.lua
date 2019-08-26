@@ -2,6 +2,8 @@ require("common/view_define")
 require("common/event_define")
 require("common/game_enum")
 require("common/base_class")
+require("common/base_object")
+require("common/base_player")
 require("common/base_ctrl")
 require("common/base_view")
 
@@ -10,6 +12,7 @@ local require_list = {
 	"common/event_manager",
 	"common/config_manager",
 	"game/role_exp/role_exp_ctrl",
+	"game/player_self"
 }
 
 function Init()
@@ -25,9 +28,10 @@ end
 function main()
 	Init()
 
-	ViewDemo()
+	-- ViewDemo()
 	-- EventDemo()
 	-- ConfigDemo()
+	ExtendsDemo()
 end
 
 function ViewDemo()
@@ -56,6 +60,11 @@ function ConfigDemo()
 	for _, v in ipairs(cfg) do
 		print("LEVEL:" .. v.level, "EXP:" .. v.exp)
 	end
+end
+
+function ExtendsDemo()
+	print("------------------------- Extends DEMO")
+	PlayerSelf.New()
 end
 
 main()

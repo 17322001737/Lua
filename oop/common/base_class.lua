@@ -3,28 +3,27 @@ function BaseClass(super)
 		super.__index = super
 	else
 		super = {}
-		super.New = function(...) end
-		super.Constructor = function(self, ...) end
-		super.Destructor = function(self, ...) end
+		-- super.New = function(...) end
+		super.Constructor = function(obj, ...) end
+		super.Destructor = function(obj, ...) end
 		super.__index = super
 	end
 
-	local self = {
-		Constructor = function(...) end,
-		Destructor = function(...) end,
+	local obj = {
+		Constructor = function(obj, ...) end,
+		Destructor = function(obj, ...) end,
 		super = super
 	}
 
-	self.New = function(...)
-		if self.super.New ~= nil and self.super.Constructor ~= nil then
-			self.super.New()
-			self.super.Constructor(self, ...)
+	obj.New = function(...)
+		if obj.super.Constructor ~= nil then
+			obj.super:Constructor(obj, ...)
 		end
-		self:Constructor()
+		obj:Constructor()
 
-		return self
+		return obj
 	end
-	setmetatable(self, super)
+	setmetatable(obj, super)
 
-	return self
+	return obj
 end

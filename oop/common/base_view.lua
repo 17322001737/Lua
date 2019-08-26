@@ -1,8 +1,8 @@
 BaseView = BaseView or BaseClass()
 
-function BaseView.Constructor(self, ...)
+function BaseView:Constructor(obj, ...)
 	if ... ~= nil then
-		ViewManager:RegisterView(self, ...)
+		ViewManager:RegisterView(obj, ...)
 	end
 end
 
