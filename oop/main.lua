@@ -15,25 +15,6 @@ local require_list = {
 	"game/player_self"
 }
 
-function Init()
-	for _, v in ipairs(require_list) do
-		require(v)
-	end
-	EventManager.New()
-	Config.New()
-	ViewManager.New()
-	RoleExpCtrl.New()
-end
-
-function main()
-	Init()
-
-	-- ViewDemo()
-	-- EventDemo()
-	-- ConfigDemo()
-	ExtendsDemo()
-end
-
 function ViewDemo()
 	print("------------------------- View DEMO")
 	ViewManager:Open(View.RoleExpView)
@@ -67,4 +48,19 @@ function ExtendsDemo()
 	PlayerSelf.New()
 end
 
-main()
+function Main()
+	for _, v in ipairs(require_list) do
+		require(v)
+	end
+	EventManager.New()
+	Config.New()
+	ViewManager.New()
+	RoleExpCtrl.New()
+
+	-- ViewDemo()
+	-- EventDemo()
+	-- ConfigDemo()
+	ExtendsDemo()
+end
+
+Main()

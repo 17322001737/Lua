@@ -1,9 +1,9 @@
 RoleExpData = RoleExpData or BaseClass()
 
-function RoleExpData:Constructor()
+function RoleExpData:Ctor()
 
 end
 
-function RoleExpData:Destructor()
+function RoleExpData:Dtor()
 
 end

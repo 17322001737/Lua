@@ -1,9 +1,9 @@
 BaseObject = BaseObject or BaseClass()
 
-function BaseObject:Constructor(obj, ...)
-	print("BaseObject:Constructor")
+function BaseObject:Ctor(obj, ...)
+	print("BaseObject:Ctor")
 end
 
-function BaseObject:Destructor()
+function BaseObject:Dtor()
 
 end

@@ -1,13 +1,13 @@
 Config = Config or BaseClass()
 
-function Config:Constructor()
+function Config:Ctor()
 	self.config_list = {}
 	self.config_mapping = {
 		[GAME_ENUM.CONFIG.ROLE_EXP_CONFIG] = "config/role_exp_config"
 	}
 end
 
-function Config:Destructor()
+function Config:Dtor()
 	self.config_list = nil
 	self.config_mapping = nil
 end

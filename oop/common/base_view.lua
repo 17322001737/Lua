@@ -1,6 +1,6 @@
 BaseView = BaseView or BaseClass()
 
-function BaseView:Constructor(obj, ...)
+function BaseView:Ctor(obj, ...)
 	if ... ~= nil then
 		ViewManager:RegisterView(obj, ...)
 	end

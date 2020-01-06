@@ -1,6 +1,6 @@
 RoleExpView = RoleExpView or BaseClass(BaseView)
 
-function RoleExpView:Constructor()
+function RoleExpView:Ctor()
 	self.cur_exp = 1000
 	self.next_exp = 10000
 end

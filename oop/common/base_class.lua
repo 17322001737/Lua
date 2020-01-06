@@ -4,22 +4,22 @@ function BaseClass(super)
 	else
 		super = {}
 		-- super.New = function(...) end
-		super.Constructor = function(obj, ...) end
-		super.Destructor = function(obj, ...) end
+		super.Ctor = function(obj, ...) end
+		super.Dtor = function(obj, ...) end
 		super.__index = super
 	end
 
 	local obj = {
-		Constructor = function(obj, ...) end,
-		Destructor = function(obj, ...) end,
+		Ctor = function(obj, ...) end,
+		Dtor = function(obj, ...) end,
 		super = super
 	}
 
 	obj.New = function(...)
-		if obj.super.Constructor ~= nil then
-			obj.super:Constructor(obj, ...)
+		if obj.super.Ctor ~= nil then
+			obj.super:Ctor(obj, ...)
 		end
-		obj:Constructor()
+		obj:Ctor()
 
 		return obj
 	end

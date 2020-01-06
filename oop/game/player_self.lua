@@ -1,9 +1,9 @@
 PlayerSelf = PlayerSelf or BaseClass(BasePlayer)
 
-function PlayerSelf:Constructor(obj, ...)
-	print("PlayerSelf:Constructor")
+function PlayerSelf:Ctor(obj, ...)
+	print("PlayerSelf:Ctor")
 end
 
-function PlayerSelf:Destructor()
+function PlayerSelf:Dtor()
 
 end

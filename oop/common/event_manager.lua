@@ -1,11 +1,11 @@
 EventManager = EventManager or BaseClass()
 
-function EventManager:Constructor()
+function EventManager:Ctor()
 	self.global_event_list = {}
 	self.local_event_list = {}
 end
 
-function EventManager:Destructor()
+function EventManager:Dtor()
 	self.global_event_list = nil
 	self.local_event_list = nil
 end

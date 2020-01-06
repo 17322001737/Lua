@@ -1,11 +1,11 @@
 ViewManager = ViewManager or BaseClass()
 
-function ViewManager:Constructor()
+function ViewManager:Ctor()
 	self.view_list = {}
 	self.view_status = {}
 end
 
-function ViewManager:Destructor()
+function ViewManager:Dtor()
 	self.view = nil
 	self.view_status = nil
 	self.view_list = nil

@@ -3,14 +3,14 @@ require("game/role_exp/role_exp_data")
 
 RoleExpCtrl = RoleExpCtrl or BaseClass(BaseCtrl)
 
-function RoleExpCtrl:Constructor()
+function RoleExpCtrl:Ctor()
 	self.view = RoleExpView.New(View.RoleExpView)
 	self.data = RoleExpData.New()
 
 	EventManager.Register(self, "RoleCtrlEvent", self.RequestRoleExp)
 end
 
-function RoleExpCtrl:Destructor()
+function RoleExpCtrl:Dtor()
 
 end
 
