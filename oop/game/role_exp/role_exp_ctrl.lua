@@ -16,7 +16,6 @@ end
 
 function RoleExpCtrl:CheckRoleExp()
 	EventManager.Fire(self, "RoleCtrlEvent", 1000)
-	EventManager.Remove(self, "RoleCtrlEvent")
 end
 
 function RoleExpCtrl:RequestRoleExp(params)
