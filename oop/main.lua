@@ -60,9 +60,9 @@ function Main()
 	RoleExpCtrl.New()
 
 	-- ViewDemo()
-	EventDemo()
+	-- EventDemo()
 	-- ConfigDemo()
-	-- ExtendsDemo()
+	ExtendsDemo()
 end
 
 Main()

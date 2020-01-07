@@ -1,9 +1,9 @@
 function BaseClass(super)
+	local super = super
 	if super ~= nil then
 		super.__index = super
 	else
 		super = {}
-		-- super.New = function(...) end
 		super.Ctor = function(obj, ...) end
 		super.Dtor = function(obj, ...) end
 		super.__index = super
@@ -16,14 +16,17 @@ function BaseClass(super)
 	}
 
 	obj.New = function(...)
-		if obj.super.Ctor ~= nil then
-			obj.super:Ctor(obj, ...)
-		end
-		obj:Ctor()
-
+		BaseCtor(obj, obj, ...)
 		return obj
 	end
 	setmetatable(obj, super)
 
 	return obj
+end
+
+function BaseCtor(obj, super, ...)
+	if super ~= nil then
+		BaseCtor(obj, super.super, ...)
+		super:Ctor(obj, ...)
+	end
 end
