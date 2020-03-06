@@ -23,14 +23,15 @@ end
 
 function EventDemo()
 	print("------------------------- Event DEMO")
-	EventManager:GlobalRegister(Event.GlobalSendProtocol, GlobalSendProtocol)
-	EventManager:GlobalFire(Event.GlobalSendProtocol, "Request RoleExp")
-	
+	local event_id = EventManager:Add(Event.GlobalSendProtocol, GlobalSendProtocol)
+
+	RoleExpCtrl:CheckRoleExp()
+
 	-- remove before
-	RoleExpCtrl:CheckRoleExp()
+	EventManager:Fire(Event.GlobalSendProtocol, "Request RoleExp")
 	-- remove later
-	EventManager.Remove(RoleExpCtrl, "RoleCtrlEvent")
-	RoleExpCtrl:CheckRoleExp()
+	EventManager:Remove(event_id)
+	EventManager:Fire(Event.GlobalSendProtocol, "Request RoleExp")
 end
 
 function GlobalSendProtocol(params)
@@ -60,9 +61,9 @@ function Main()
 	RoleExpCtrl.New()
 
 	-- ViewDemo()
-	-- EventDemo()
+	EventDemo()
 	-- ConfigDemo()
-	ExtendsDemo()
+	-- ExtendsDemo()
 end
 
 Main()

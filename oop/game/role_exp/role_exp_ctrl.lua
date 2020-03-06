@@ -7,7 +7,9 @@ function RoleExpCtrl:Ctor()
 	self.view = RoleExpView.New(View.RoleExpView)
 	self.data = RoleExpData.New()
 
-	EventManager.Register(self, "RoleCtrlEvent", self.RequestRoleExp)
+	EventManager:Add("RoleCtrlEvent", function(params)
+		self:RequestRoleExp(params)
+	end)
 end
 
 function RoleExpCtrl:Dtor()
@@ -15,7 +17,7 @@ function RoleExpCtrl:Dtor()
 end
 
 function RoleExpCtrl:CheckRoleExp()
-	EventManager.Fire(self, "RoleCtrlEvent", 1000)
+	EventManager:Fire("RoleCtrlEvent", 1000)
 end
 
 function RoleExpCtrl:RequestRoleExp(params)
